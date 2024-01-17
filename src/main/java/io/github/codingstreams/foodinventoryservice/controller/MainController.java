@@ -2,18 +2,16 @@ package io.github.codingstreams.foodinventoryservice.controller;
 
 import io.github.codingstreams.foodinventoryservice.model.FoodItem;
 import io.github.codingstreams.foodinventoryservice.repository.FoodItemRepo;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/food-inventory")
+@RequiredArgsConstructor
 public class MainController {
   private final FoodItemRepo foodItemRepo;
-
-  public MainController(FoodItemRepo foodItemRepo) {
-    this.foodItemRepo = foodItemRepo;
-  }
 
   @PostMapping("/")
   public ResponseEntity<FoodItem> saveFoodItem(@RequestBody FoodItem foodItem) {
